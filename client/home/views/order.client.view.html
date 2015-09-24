@@ -1,0 +1,72 @@
+<div class="container wrapper">
+    <div ng-controller="HomeController">
+
+        <div class="home-logo"><img src="../images/logo.png" class="logo-img"/></div>
+
+        <div class="row">
+            <div class="home-header"></div>
+            <div class="order-block tshirt-container">
+                <div class="col-sm-7 order-area">
+                    <form novalidate class="simple-form" name="orderForm">
+                        <div class="header">Contact Info.</div>
+                        <div class="row order-row">
+                            <div class="col-sm-4">Name</div>
+                            <div class="col-sm-8">
+                                <input name="uName" class="form-control text-input-field" placeholder="" ng-model="model.name" required min="3">
+                                <div ng-show="orderForm.uName.$invalid && !orderForm.uName.$pristine">
+                                    <div ng-show="orderForm.uName.$error.required" class="error">Tell us your name.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row order-row">
+                            <div class="col-sm-4">Email Address</div>
+                            <div class="col-sm-8">
+                                <input type="email" name="uEmail" class="form-control text-input-field" placeholder="e.g. name@mail.com" ng-model="model.email" required min="3">
+                                <div ng-show="orderForm.uEmail.$invalid && !orderForm.uEmail.$pristine">
+                                    <span ng-show="orderForm.uEmail.$error.required" class="error">Tell us your email.</span>
+                                    <span ng-show="orderForm.uEmail.$error.email" class="error">This is not a valid email.</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="header">Sizes</div>
+                        <div class="row order-row order-hdr">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">X-Large</div>
+                            <div class="col-sm-2">Large</div>
+                            <div class="col-sm-2">Medium</div>
+                            <div class="col-sm-2">Small</div>
+                        </div>
+                        <div class="order-table" ng-repeat="product in model.products">
+                            <div class="row order-row">
+                                <div class="col-sm-4">{{product.style}}</div>
+                                <div ng-repeat="size in product.sizes">
+                                    <div class="col-sm-2">
+                                        <div class="col-sm-4">
+                                            <input class="btn btn-default btn-down" type="button" value="<" ng-click="decrement(size)">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="size.id" ng-model="size.qty" placeholder="size.qty"></td>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input class="btn btn-default btn-up" type="button" value=">" ng-click="increment(size)"></td>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-bar">
+                            <button class="btn" ng-click="reset()">Reset</button>
+                            <button class="btn" ng-disabled="orderForm.$invalid" ng-click="submit(model)">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5 tshirt-container">
+                    <img src="../images/tshirt.png" class="tshirt-img"/>
+                </div>
+            </div>
+
+            <div class="home-footer"></div>
+        </div>
+    </div>
+</div>

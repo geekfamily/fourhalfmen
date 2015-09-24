@@ -1,0 +1,13 @@
+dist/
+.idea
+.idea/*
+*.iml
+*.log
+.project
+.settings
+.bower-cache
+*.sass-cache
+bin/
+node_modules/
+client/lib
+config/
