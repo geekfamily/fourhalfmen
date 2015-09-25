@@ -40,9 +40,12 @@ gulp.task('js', function() {
     gulp.src(['./client/users/**/*.js'])
         .pipe(uglify())
         .pipe(gulp.dest(appRoot+'/client/users'));
-    gulp.src(['./config/**/*.js'])
+    //gulp.src(['./config/**/*.js'])
+    //    .pipe(uglify())
+    //    .pipe(gulp.dest(appRoot+'/config'));
+    gulp.src(['./client/application.js'])
         .pipe(uglify())
-        .pipe(gulp.dest(appRoot+'/config'));
+        .pipe(gulp.dest(appRoot+'/client'));
 });
 
 //server side JS

@@ -10,4 +10,4 @@ dist/
 bin/
 node_modules/
 client/lib
-config/
+app/config/

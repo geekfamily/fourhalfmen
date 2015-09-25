@@ -4,9 +4,9 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Load the module dependencies
-var mongoose = require('./config/mongoose'),
-    express = require('./config/express'),
-    passport = require('./config/passport');
+var mongoose = require('./app/config/mongoose'),
+    express = require('./app/config/express'),
+    passport = require('./app/config/passport');
 
 // Create a new Mongoose connection instance
 var db = mongoose();
